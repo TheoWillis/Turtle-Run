@@ -59,7 +59,7 @@ class Avatar {
 	moveMe(){
     if (keyIsPressed===true) { //if you hold the up arrow, move up by speed
       this.x = this.x+5+ this.speed;
-      this.y = this.y+10+this.speed;
+      this.y = this.y+5;
     }
 
   //  if (keyIsDown(DOWN_ARROW)) { // if you hold the down arrow, move down by speed
