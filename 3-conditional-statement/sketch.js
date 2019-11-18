@@ -14,13 +14,13 @@ function setup() {
 }
 
 function draw(){
-	background(255,255,255);
+	background(66, 135, 245);
 
   me.drawMe();
   me.moveMe();
 
-  if (frameCount % 40 == 0) {
-      let  b = new Ball(width, random(0,height), -3);
+  if (frameCount % 80 == 0) {
+      let  b = new Ball(width, random(0,height), -1);
       balls.push(b);
       console.log(balls); //print the balls array to the console
     }
@@ -45,14 +45,9 @@ class Avatar {
 	drawMe(){  // draw the running person
     		stroke("green");
         strokeWeight(3);
-    		fill("blue");
-		    ellipse(this.x,this.y,20,20);
-        line(this.x,this.y, this.x, this.y+40);
-        line(this.x, this.y+40, this.x-20, this.y+60);
-        line(this.x, this.y+40, this.x+10, this.y+50);
-        line(this.x+10, this.y+50, this.x+5, this.y+60);
-        line(this.x, this.y+15, this.x-10, this.y+25);
-        line(this.x-10, this.y+25, this.x+10, this.y+35);
+    		fill(22, 161, 10);
+		    ellipse(this.x,this.y,40,40);
+
 	}
 
 	moveMe(){
@@ -92,8 +87,8 @@ class Ball {
 
 	//update the location of the ball, so it moves cross the screen
 	moveBall(){
-		this.x = this.x- 0.5;
-		this.y = this.y-this.speed;
+		this.x = this.x + this.speed;
+		this.y = this.y + 1;
 	}
 
   }
