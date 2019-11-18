@@ -86,7 +86,7 @@ class Ball {
     	stroke(0);
       strokeWeight(1);
     	fill("brown");
-		 rect(this.x,this.y,100,40);
+		 rect(this.x,this.y,100,40,10);
 
 	}
 
