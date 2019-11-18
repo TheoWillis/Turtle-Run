@@ -14,7 +14,7 @@ function setup() {
 }
 
 function draw(){
-	background(255,20,255);
+	background(255,255,255);
 
   me.drawMe();
   me.moveMe();
@@ -29,8 +29,7 @@ function draw(){
 	for (let i = 0; i < balls.length; i++) {
 	 	      balls[i].drawBall();
        	  balls[i].moveBall();
-        	balls[i].bounceBall();
-	  }
+     }
 
 }
 
@@ -57,21 +56,20 @@ class Avatar {
 	}
 
 	moveMe(){
-    if (keyIsPressed===true) { //if you hold the up arrow, move up by speed
-      this.x = this.x+5+ this.speed;
-      this.y = this.y+5;
+
+
+   if (keyIsDown(RIGHT_ARROW)) { // if you hold the down arrow, move down by speed
+      this.x += this.speed;
     }
 
-  //  if (keyIsDown(DOWN_ARROW)) { // if you hold the down arrow, move down by speed
-      //  this.y += this.speed;
-    }
+    if (keyIsDown(LEFT_ARROW)) { // if you hold the down arrow, move down by speed
+       this.x -= this.speed;
+     }
 	}
-
+}
   // die(){
   //
   // }
-
-
 
 //ball class from which to create new balls with similar properties.
 class Ball {
@@ -88,20 +86,13 @@ class Ball {
     	stroke(0);
       strokeWeight(1);
     	fill("red");
-		  rectangle(this.x,this.y,10,10);
+		 ellipse(this.x,this.y,10,10);
 	}
 
 	//update the location of the ball, so it moves cross the screen
 	moveBall(){
-		this.x = this.x+ this.speed;
-		this.y = this.y+.5;
+		this.x = this.x- 0.5;
+		this.y = this.y-this.speed;
 	}
 
-	//if the ball hits the person, change the speed value to negative (send it in the opposite direction)
-  	bounceBall(){
-    		if (this.x >= me.x-15 && this.x <= me.x+15 && this.y > me.y-40 && this.y < me.y+40){
-      			this.speed = -this.speed;
-    		}
-  	}
-
-}
+  }
