@@ -85,8 +85,9 @@ class Ball {
 	drawBall(){
     	stroke(0);
       strokeWeight(1);
-    	fill("red");
-		 ellipse(this.x,this.y,10,10);
+    	fill("brown");
+		 rect(this.x,this.y,100,40);
+
 	}
 
 	//update the location of the ball, so it moves cross the screen
