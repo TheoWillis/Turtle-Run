@@ -91,7 +91,7 @@ class Ball {
 		  rectangle(this.x,this.y,10,10);
 	}
 
-	//update the location of the ball, so it moves across the screen
+	//update the location of the ball, so it moves cross the screen
 	moveBall(){
 		this.x = this.x+ this.speed;
 		this.y = this.y+.5;
