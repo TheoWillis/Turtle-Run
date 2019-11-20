@@ -96,5 +96,4 @@ class Ball {
           this.speed = -this.speed;
         }
     }
-  //keep this.y with no +- any number to keep logs moving horizontal
 }
