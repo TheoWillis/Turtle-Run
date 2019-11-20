@@ -10,7 +10,6 @@ function setup() {
 
   //make one avatar called me
   me = new Avatar(width/2, 300, 3);
-
 }
 
 function draw(){
@@ -30,7 +29,6 @@ function draw(){
 	 	      balls[i].drawBall();
        	  balls[i].moveBall();
      }
-
 }
 
 //avatar class
@@ -47,12 +45,9 @@ class Avatar {
         strokeWeight(3);
     		fill(22, 161, 10);
 		    ellipse(this.x,this.y,40,40);
-
 	}
 
 	moveMe(){
-
-
    if (keyIsDown(RIGHT_ARROW)) { // if you hold the down arrow, move down by speed
       this.x += this.speed;
     }
@@ -88,7 +83,6 @@ class Ball {
       strokeWeight(1);
     	fill("brown");
 		 rect(this.x,this.y,100,35,10);
-
 	}
 
 	//update the location of the ball, so it moves cross the screen
