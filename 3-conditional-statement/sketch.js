@@ -92,7 +92,7 @@ class Ball {
   }
 
   bounceBall(){
-      if (this.x >= me.x-15 && this.x <= me.x+15 && this.y > me.y-40 && this.y < me.y+40){
+      if (me.x+20>=this.x&&me.y-20>=this.y&&me.y+20<=this.y){
           this.speed = -this.speed;
         }
     }
