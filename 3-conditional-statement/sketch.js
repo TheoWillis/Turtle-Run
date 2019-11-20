@@ -6,7 +6,7 @@ let me;
 
 
 function setup() {
-  createCanvas(500, 400);
+  createCanvas(600, 400);
 
   //make one avatar called me
   me = new Avatar(width/2, 300, 3);
@@ -91,4 +91,4 @@ class Ball {
 		this.y = this.y + 1;
 	}
 
-  }
+}
