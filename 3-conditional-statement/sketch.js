@@ -108,5 +108,4 @@ class Ball {
           me.alive=false;
         }
     }
-  //keep this.y with no +- any number to keep logs moving horizontal
 }
