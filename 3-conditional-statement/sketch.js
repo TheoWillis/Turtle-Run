@@ -8,7 +8,7 @@ function setup() {
   createCanvas(800, 400);
 
   //make one avatar called me
-  me = new Avatar(width/2, 300, 3);
+  me = new Avatar(width/2, 300, 3,true);
 }
 
 function draw(){
@@ -33,26 +33,37 @@ function draw(){
 //avatar class
 class Avatar {
 
-	constructor(x,y, speed){ //every avatar needs an x value, a y value, and a speed
+	constructor(x,y, speed,alive){ //every avatar needs an x value, a y value, and a speed
 		    this.x = x;
     		this.y = y;
         this.speed = speed;
+        this.alive = alive;
 	}
 
 	drawMe(){  // draw the running person
-    		stroke("green");
-        strokeWeight(3);
-    		fill(22, 161, 10);
-		    ellipse(this.x,this.y,40,40);
+    if(this.alive ==true){
+
+
+      stroke("green");
+      strokeWeight(3);
+      fill(22, 161, 10);
+      ellipse(this.x,this.y,40,40);
+
+        }
+        else{
+          textSize(60)
+          fill("red")
+          text('you died',175,175)
+        }
+
+
 	}
 
 	moveMe(){
-   if (keyIsDown(RIGHT_ARROW)) { // if you hold the down arrow, move down by speed
-      this.x += this.speed;
-    }
+   this.x -= this.speed;
 
-    if (keyIsDown(LEFT_ARROW)) { // if you hold the down arrow, move down by speed
-       this.x -= this.speed;
+   if (keyIsDown(RIGHT_ARROW)) { // if you hold the down arrow, move down by speed
+      this.x += this.speed*2;
     }
     if (keyIsDown(UP_ARROW)) {
         this.y -= this.speed;
@@ -93,7 +104,8 @@ class Ball {
 
   bounceBall(){
       if (this.x >= me.x-15 && this.x <= me.x+15 && this.y > me.y-40 && this.y < me.y+40){
-          this.speed = -this.speed;
+          this.speed = -this.speed
+          me.alive=false;
         }
     }
   //keep this.y with no +- any number to keep logs moving horizontal
