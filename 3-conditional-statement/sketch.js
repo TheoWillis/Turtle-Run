@@ -6,7 +6,7 @@ let me;
 
 
 function setup() {
-  createCanvas(800, 500);
+  createCanvas(800, 400);
 
   //make one avatar called me
   me = new Avatar(width/2, 300, 3);
@@ -59,8 +59,14 @@ class Avatar {
 
     if (keyIsDown(LEFT_ARROW)) { // if you hold the down arrow, move down by speed
        this.x -= this.speed;
-     }
-	}
+    }
+    if (keyIsDown(UP_ARROW)) {
+        this.y += this.speed;
+    }
+    if(keyIsDown(DOWN_ARROW)) {
+        this.y -= this.speed;
+    }
+  }
 }
   // die(){
   //
@@ -87,8 +93,8 @@ class Ball {
 
 	//update the location of the ball, so it moves cross the screen
 	moveBall(){
-		this.x = this.x + 0.5;
-		this.y = this.y + 0.1;
+		this.x = this.x + this.speed;
+		this.y = this.y + 1;
 	}
 
 }
