@@ -61,10 +61,10 @@ class Avatar {
        this.x -= this.speed;
     }
     if (keyIsDown(UP_ARROW)) {
-        this.y += this.speed;
+        this.y -= this.speed;
     }
     if(keyIsDown(DOWN_ARROW)) {
-        this.y -= this.speed;
+        this.y += this.speed;
     }
   }
 }
@@ -87,14 +87,16 @@ class Ball {
     	stroke(0);
       strokeWeight(1);
     	fill("brown");
-		 rect(this.x,this.y,100,40,10);
+		 rect(this.x,this.y,100,35,10);
 
 	}
 
 	//update the location of the ball, so it moves cross the screen
 	moveBall(){
-		this.x = this.x + this.speed;
-		this.y = this.y + 1;
+		this.x = this.x-3;
+  //this.-# changes how fast the logs move from right to left
+		this.y = this.y;
+  //keep this.y with no +- any number to keep logs moving horizontal
 	}
 
 }
