@@ -4,7 +4,6 @@ let balls = [];
 //create a variable to hold your avatar
 let me;
 
-
 function setup() {
   createCanvas(800, 400);
 
@@ -19,7 +18,7 @@ function draw(){
   me.moveMe();
 
   if (frameCount % 80 == 0) {
-      let  b = new Ball(width, random(0,height), -1);
+      let  b = new Ball(width, random(0,height), -3);
       balls.push(b);
       console.log(balls); //print the balls array to the console
     }
@@ -87,8 +86,15 @@ class Ball {
 
 	//update the location of the ball, so it moves cross the screen
 	moveBall(){
-		this.x = this.x-3;
+		this.x = this.x+this.speed;
   //this.-# changes how fast the logs move from right to left
 		this.y = this.y;
   }
+
+  bounceBall(){
+      if (this.x >= me.x-15 && this.x <= me.x+15 && this.y > me.y-40 && this.y < me.y+40){
+          this.speed = -this.speed;
+        }
+    }
   //keep this.y with no +- any number to keep logs moving horizontal
+}
