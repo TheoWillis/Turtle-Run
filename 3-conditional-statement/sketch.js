@@ -6,7 +6,7 @@ let me;
 
 
 function setup() {
-  createCanvas(600, 400);
+  createCanvas(800, 500);
 
   //make one avatar called me
   me = new Avatar(width/2, 300, 3);
@@ -87,8 +87,8 @@ class Ball {
 
 	//update the location of the ball, so it moves cross the screen
 	moveBall(){
-		this.x = this.x + this.speed;
-		this.y = this.y + 1;
+		this.x = this.x + 0.5;
+		this.y = this.y + 0.1;
 	}
 
 }
