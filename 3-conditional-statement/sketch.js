@@ -96,4 +96,5 @@ class Ball {
 		this.x = this.x-3;
   //this.-# changes how fast the logs move from right to left
 		this.y = this.y;
+  }
   //keep this.y with no +- any number to keep logs moving horizontal
