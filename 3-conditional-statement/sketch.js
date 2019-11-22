@@ -1,5 +1,6 @@
 //create an empty array called balls
 let balls = [];
+let score = 0;
 
 //create a variable to hold your avatar
 let me;
@@ -17,6 +18,12 @@ function draw(){
   me.drawMe();
   me.moveMe();
 
+  if (frameCount%60==0){
+    score=score+1
+  }
+
+  textSize(30);
+  text (score,200,200)
   if (frameCount % 80 == 0) {
       let  b = new Ball(width, random(0,height), -3, false);
       balls.push(b);
