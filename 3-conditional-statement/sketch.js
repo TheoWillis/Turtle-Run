@@ -18,7 +18,7 @@ function draw(){
   me.moveMe();
 
   if (frameCount % 80 == 0) {
-      let  b = new Ball(width, random(0,height), -3);
+      let  b = new Ball(width, random(0,height), -3, false);
       balls.push(b);
       console.log(balls); //print the balls array to the console
     }
@@ -27,6 +27,7 @@ function draw(){
 	for (let i = 0; i < balls.length; i++) {
 	 	      balls[i].drawBall();
        	  balls[i].moveBall();
+          balls[i].bounceBall();
      }
 }
 
@@ -47,6 +48,7 @@ class Avatar {
 	}
 
 	moveMe(){
+    this.x=this.x-1;
    if (keyIsDown(RIGHT_ARROW)) { // if you hold the down arrow, move down by speed
       this.x += this.speed;
     }
@@ -70,10 +72,11 @@ class Avatar {
 class Ball {
 
 	//every ball needs an x value, a y value, and a speed
-	constructor(x,y, speed){
+	constructor(x,y, speed, hit){
 		this.x = x;
     this.y = y;
     this.speed = speed;
+    this.hit= hit;
 	}
 
 	// draw a ball on the screen at x,y
@@ -92,8 +95,10 @@ class Ball {
   }
 
   bounceBall(){
-      if (me.x+20>=this.x&&me.y-20>=this.y&&me.y+20<=this.y){
-          this.speed = -this.speed;
-        }
-    }
+    //  if (me.x+20>=this.x && me.y-20>=this.y &&me.y+20<=this.y){
+      if (me.x>=this.x && me.x<=this.x+10 && me.y-20<=this.y+35&&this.hit==false&&me.y+20>=this.y){
+        this.speed=-this.speed;
+        this.hit=true;
+      }
+  }
 }
