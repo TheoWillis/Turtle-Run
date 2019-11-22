@@ -43,18 +43,15 @@ class Avatar {
 
 	drawMe(){  // draw the running person
     if(this.alive==true){
-
-
       stroke("green");
       strokeWeight(3);
       fill(22, 161, 10);
       ellipse(this.x,this.y,40,40);
-
         }
-        else{
-          textSize(60)
-          fill("red")
-          text('you died',175,175)
+    else{
+      textSize(60)
+      fill("red")
+      text('you died',175,175)
         }
 	}
 
@@ -106,7 +103,7 @@ class Ball {
   bounceBall(){
     //  if (me.x+20>=this.x && me.y-20>=this.y &&me.y+20<=this.y){
       if (me.x>=this.x && me.x<=this.x+10 && me.y-20<=this.y+35&&this.hit==false&&me.y+20>=this.y){
-        this.speed=-this.speed;
+        this.speed=this.speed;
         this.hit=true;
         me.alive=false;
       }
