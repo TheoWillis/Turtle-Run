@@ -14,16 +14,22 @@ function setup() {
 
 function draw(){
 	background(66, 135, 245);
+  textSize(30);
+  text (score,50,50)
 
   me.drawMe();
   me.moveMe();
 
-  if (frameCount%60==0){
-    score=score+1
-  }
+  if(me.alive==true){
+    if (frameCount%60==0){
+      score=score+1
+      }
+    }
 
-  textSize(30);
-  text (score,200,200)
+  else{
+      score=0
+    }
+
   if (frameCount % 80 == 0) {
       let  b = new Ball(width, random(0,height), -3, false);
       balls.push(b);
