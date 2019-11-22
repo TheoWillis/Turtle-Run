@@ -64,7 +64,7 @@ class Avatar {
     else{
       textSize(60)
       fill("red")
-      text('you died',175,175)
+      text('YOU DIED',175,175)
         }
 	}
 
