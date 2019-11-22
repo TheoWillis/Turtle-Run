@@ -42,7 +42,7 @@ class Avatar {
 	}
 
 	drawMe(){  // draw the running person
-    if(this.alive ==true){
+    if(this.alive==true){
 
 
       stroke("green");
@@ -56,8 +56,6 @@ class Avatar {
           fill("red")
           text('you died',175,175)
         }
-
-
 	}
 
 	moveMe(){
@@ -110,6 +108,7 @@ class Ball {
       if (me.x>=this.x && me.x<=this.x+10 && me.y-20<=this.y+35&&this.hit==false&&me.y+20>=this.y){
         this.speed=-this.speed;
         this.hit=true;
+        me.alive=false;
       }
   }
 }
