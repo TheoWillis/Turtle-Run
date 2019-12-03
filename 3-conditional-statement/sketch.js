@@ -1,9 +1,13 @@
 //create an empty array called balls
 let balls = [];
+let fishes = [];
+// let highscore = localStorage.getItem("maxscore")
+
 let score = 0;
 
 //create a variable to hold your avatar
 let me;
+let timer = 15;
 
 function setup() {
   createCanvas(800, 400);
@@ -15,7 +19,11 @@ function setup() {
 function draw(){
 	background(66, 135, 245);
   textSize(30);
-  text (score,50,50)
+    fill(22, 161, 10);
+  text ("Score: " + score,50,50)
+  text ("Life: " + timer,650,50)
+  // text ("Highscore: " + maxscore,50, 100)
+
 
   me.drawMe();
   me.moveMe();
@@ -23,12 +31,19 @@ function draw(){
   if(me.alive==true){
     if (frameCount%60==0){
       score=score+1
+      timer=timer-1
       }
+
     }
 
   else{
-      score=0
+      // score=0
+      timer=0
     }
+    if(timer==0){
+      me.alive=false
+    }
+
 
   if (frameCount % 80 == 0) {
       let  b = new Ball(width, random(0,height), -3, false);
@@ -36,12 +51,23 @@ function draw(){
       console.log(balls); //print the balls array to the console
     }
 
+    if (frameCount % 400 == 0) {
+        let  b = new Fish(width, random(0,height), -3, false);
+        fishes.push(b);
+        console.log(fishes); //print the balls array to the console
+      }
+
 //	draw all the balls in that array
 	for (let i = 0; i < balls.length; i++) {
 	 	      balls[i].drawBall();
        	  balls[i].moveBall();
           balls[i].bounceBall();
      }
+     for (let i = 0; i < fishes.length; i++) {
+   	 	      fishes[i].drawFish();
+          	  fishes[i].moveFish();
+             fishes[i].bounceFish();
+        }
 }
 
 //avatar class
@@ -64,7 +90,7 @@ class Avatar {
     else{
       textSize(60)
       fill("red")
-      text('YOU DIED',175,175)
+      text('GAME OVER',250,250)
         }
 	}
 
@@ -119,6 +145,50 @@ class Ball {
         this.speed=this.speed;
         this.hit=true;
         me.alive=false;
+
+      //   if (score>highscore){
+			// 		localStorage.setItem("maxscore",score)
+      // }
+  }
+}
+}
+
+
+class Fish {
+
+	//every ball needs an x value, a y value, and a speed
+	constructor(x,y, speed, hit){
+		this.x = x;
+    this.y = y;
+    this.speed = speed;
+    this.hit= hit;
+	}
+
+	// draw a ball on the screen at x,y
+	drawFish(){
+    	stroke(0);
+      strokeWeight(1);
+    	fill(245, 114, 0);
+		   ellipse(this.x,this.y,30,30);
+	}
+
+	//update the location of the ball, so it moves cross the screen
+	moveFish(){
+		this.x = this.x+this.speed;
+  //this.-# changes how fast the logs move from right to left
+		this.y = this.y;
+  }
+
+  bounceFish(){
+    //  if (me.x+20>=this.x && me.y-20>=this.y &&me.y+20<=this.y){
+      if (me.x>=this.x && me.x<=this.x+10 && me.y-20<=this.y+35&&this.hit==false&&me.y+20>=this.y){
+        this.speed=this.speed;
+        this.hit=true;
+        this.x=-20;
+        timer=15;
+
+
+
       }
   }
 }
