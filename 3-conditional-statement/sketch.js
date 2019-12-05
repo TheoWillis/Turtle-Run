@@ -10,12 +10,10 @@ function setup() {
 
   //make one avatar called me
   me = new Avatar(width/2, 300, 3);
-
 }
 
 function draw(){
 	background(255,20,255);
-
   me.drawMe();
   me.moveMe();
 
@@ -98,9 +96,9 @@ class Ball {
 	}
 
 	//if the ball hits the person, change the speed value to negative (send it in the opposite direction)
-  	bounceBall(){
-    		if (this.x >= me.x-15 && this.x <= me.x+15 && this.y > me.y-40 && this.y < me.y+40){
-      			this.speed = -this.speed;
+  bounceBall(){
+    if (this.x >= me.x-15 && this.x <= me.x+15 && this.y > me.y-40 && this.y < me.y+40){
+      	this.speed = -this.speed;
     		}
   	}
 
