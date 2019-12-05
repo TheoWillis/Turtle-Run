@@ -24,7 +24,7 @@ function preload() {
 
 
 function setup() {
-  createCanvas(500, 400);
+  createCanvas(900, 500);
 
   //make one avatar called me
   me = new Avatar(width/2, 300, 3);
@@ -34,15 +34,15 @@ function draw(){
 
 	background(66, 135, 245);
   textSize(30);
-    fill(22, 161, 10);
+  fill(22, 161, 10);
   text ("Score: " + score,50,50)
   text ("Life: " + timer,650,50)
   // text ("Highscore: " + maxscore,50, 100)
 
-
   me.drawMe();
   me.moveMe();
 
+  animation(ghost, 300, 200);
   if(me.alive==true){
     if (frameCount%60==0){
       score=score+1
@@ -63,12 +63,6 @@ function draw(){
   if (frameCount % 80 == 0) {
       let  b = new Ball(width, random(0,height), -3, false);
 
-	
-
-  animation(ghost, 300, 300);
-
-  
-
       balls.push(b);
       console.log(balls); //print the balls array to the console
     }
@@ -83,13 +77,12 @@ function draw(){
 	for (let i = 0; i < balls.length; i++) {
 	 	      balls[i].drawBall();
        	  balls[i].moveBall();
-
           balls[i].bounceBall();
      }
      for (let i = 0; i < fishes.length; i++) {
    	 	      fishes[i].drawFish();
-          	  fishes[i].moveFish();
-             fishes[i].bounceFish();
+          	fishes[i].moveFish();
+            fishes[i].bounceFish();
         }
 
 }
@@ -121,7 +114,7 @@ class Avatar {
 
 	moveMe(){
     if (keyIsPressed===true) { //if you hold the up arrow, move up by speed
-      this.x = this.x+5+ this.speed;
+      this.x = this.x+5+this.speed;
       this.y = this.y+10+this.speed;
     }
 
@@ -136,46 +129,45 @@ class Avatar {
 
 
 
-//ball class from which to create new balls with similar properties.
-class Ball {
+  //ball class from which to create new balls with similar properties.
+  class Ball {
 
-	//every ball needs an x value, a y value, and a speed
-	constructor(x,y, speed){
-		this.x = x;
-    this.y = y;
-    this.speed = speed;
-	}
+  	//every ball needs an x value, a y value, and a speed
+  	constructor(x,y, speed){
+  		this.x = x;
+      this.y = y;
+      this.speed = speed;
+  	}
 
-	// draw a ball on the screen at x,y
-	drawBall(){
-    	stroke(0);
-      strokeWeight(1);
-    	fill("red");
-		  ellipse(this.x,this.y,10,10);
-	}
+  	// draw a ball on the screen at x,y
+  	drawBall(){
+      	stroke(0);
+        strokeWeight(1);
+      	fill("red");
+  		  ellipse(this.x,this.y,10,10);
+  	}
 
-	//update the location of the ball, so it moves across the screen
-	moveBall(){
-		this.x = this.x+ this.speed;
-		this.y = this.y+.5;
-	}
+  	//update the location of the ball, so it moves across the screen
+  	moveBall(){
+  		this.x = this.x+ this.speed;
+  		this.y = this.y+.5;
+  	}
 
-	//if the ball hits the person, change the speed value to negative (send it in the opposite direction)
-  bounceBall(){
+  	//if the ball hits the person, change the speed value to negative (send it in the opposite direction)
+    bounceBall(){
 
-    //  if (me.x+20>=this.x && me.y-20>=this.y &&me.y+20<=this.y){
-      if (me.x>=this.x && me.x<=this.x+10 && me.y-20<=this.y+35&&this.hit==false&&me.y+20>=this.y){
-        this.speed=this.speed;
-        this.hit=true;
-        me.alive=false;
+      //  if (me.x+20>=this.x && me.y-20>=this.y &&me.y+20<=this.y){
+        if (me.x>=this.x && me.x<=this.x+10 && me.y-20<=this.y+35&&this.hit==false&&me.y+20>=this.y){
+          this.speed=this.speed;
+          this.hit=true;
+          me.alive=false;
 
-      //   if (score>highscore){
-			// 		localStorage.setItem("maxscore",score)
-      // }
+        //   if (score>highscore){
+  			// 		localStorage.setItem("maxscore",score)
+        // }
+    }
   }
 }
-}
-
 
 class Fish {
 
@@ -192,7 +184,7 @@ class Fish {
     	stroke(0);
       strokeWeight(1);
     	fill(245, 114, 0);
-		   ellipse(this.x,this.y,30,30);
+		  ellipse(this.x,this.y,30,30);
 	}
 
 	//update the location of the ball, so it moves cross the screen
@@ -209,9 +201,6 @@ class Fish {
         this.hit=true;
         this.x=-20;
         timer=15;
-
-
-
       }
   }
 
