@@ -65,7 +65,7 @@ function draw(){
 
 
 
-  animation(ghost, 300, 300);
+
 
 
 
@@ -126,7 +126,7 @@ class Avatar {
     }
    if (keyIsDown(RIGHT_ARROW)) { // if you hold the down arrow, move down by speed
       this.x += this.speed*2;
-    
+
     }
     if (keyIsDown(UP_ARROW)) {
         this.y -= this.speed;
