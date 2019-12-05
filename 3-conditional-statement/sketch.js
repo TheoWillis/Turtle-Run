@@ -4,6 +4,17 @@ let balls = [];
 //create a variable to hold your avatar
 let me;
 
+var ghost;
+//
+// //it's advisable (but not necessary) to load the images in the preload function
+// //of your sketch otherwise they may appear with a little delay
+function preload() {
+//
+//   //create an animation from a sequence of numbered images
+//   //pass the first and the last file name and it will try to find the ones in between
+  ghost = loadAnimation('sprites/Turtle1.png', 'sprites/Turtle2.png','sprites/Turtle3.png','sprites/Turtle4.png');
+}
+
 
 function setup() {
   createCanvas(500, 400);
@@ -16,6 +27,8 @@ function draw(){
 	background(255,20,255);
   me.drawMe();
   me.moveMe();
+
+  animation(ghost, 300, 300);
 
   if (frameCount % 40 == 0) {
       let  b = new Ball(width, random(0,height), -3);
