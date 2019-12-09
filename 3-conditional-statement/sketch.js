@@ -34,9 +34,11 @@ function draw(){
   background(66, 135, 245);
 
   textSize(30);
-  fill(22, 161, 10);
+  fill(250, 250, 250);
   text ("Score: " + score,50,50)
   text ("Life: " + timer,650,50)
+  textSize(15);
+  text ("Use Arrow Keys to Move; Dodge Logs; Collect Fish to Replenish Your Life", 155,390)
   // text ("Highscore: " + maxscore,50, 100)
 
   me.drawMe();
