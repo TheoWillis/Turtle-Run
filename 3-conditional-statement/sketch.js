@@ -11,7 +11,7 @@ let score = 0;
 let me;
 let timer = 15;
 
-var ghost;
+var turtle;
 //
 // //it's advisable (but not necessary) to load the images in the preload function
 // //of your sketch otherwise they may appear with a little delay
@@ -19,7 +19,7 @@ function preload() {
 //
 //   //create an animation from a sequence of numbered images
 //   //pass the first and the last file name and it will try to find the ones in between
-  ghost = loadAnimation('sprites/Turtle1.png', 'sprites/Turtle2.png','sprites/Turtle3.png','sprites/Turtle4.png');
+  turtle = loadAnimation('sprites/Turtle1.png', 'sprites/Turtle2.png','sprites/Turtle3.png','sprites/Turtle4.png');
 }
 
 
@@ -42,7 +42,7 @@ function draw(){
   me.drawMe();
   me.moveMe();
 
-
+  // animation(turtle, 300, 200);
   if(me.alive==true){
     if (frameCount%60==0){
       score=score+1
@@ -100,7 +100,7 @@ class Avatar {
 	drawMe(){  // draw the running person
 
     if(this.alive==true){
-      animation(ghost, this.x, this.y);
+      animation(turtle,this.x,this.y);
       // stroke("green");
       // strokeWeight(3);
       // fill(22, 161, 10);
