@@ -195,10 +195,12 @@ class Fish {
 
 	// draw a ball on the screen at x,y
 	drawFish(){
-    	stroke(0);
+    	stroke(245, 114, 0);
       strokeWeight(1);
     	fill(245, 114, 0);
 		  ellipse(this.x,this.y,30,30);
+      triangle(this.x+5, this.y, this.x+30, this.y+15, this.x+30, this.y-15);
+      // triangle(30, 75, 58, 20, 86, 75);
 	}
 
 	//update the location of the ball, so it moves cross the screen
