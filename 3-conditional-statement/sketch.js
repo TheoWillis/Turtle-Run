@@ -42,7 +42,7 @@ function draw(){
   me.drawMe();
   me.moveMe();
 
-  animation(ghost, 300, 200);
+
   if(me.alive==true){
     if (frameCount%60==0){
       score=score+1
@@ -100,10 +100,11 @@ class Avatar {
 	drawMe(){  // draw the running person
 
     if(this.alive==true){
-      stroke("green");
-      strokeWeight(3);
-      fill(22, 161, 10);
-      ellipse(this.x,this.y,40,40);
+      animation(ghost, this.x, this.y);
+      // stroke("green");
+      // strokeWeight(3);
+      // fill(22, 161, 10);
+      // ellipse(this.x,this.y,40,40);
         }
     else{
       textSize(60)
